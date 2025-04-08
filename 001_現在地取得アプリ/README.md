@@ -16,5 +16,5 @@
 
 
 ## henkan.py
-2でhttps://japanese-addresses-v2.geoloniamaps.com/api/ja.jsonから取得したデータをPower Appsで使えるコレクション形式に変換します。
+2で https://japanese-addresses-v2.geoloniamaps.com/api/ja.json から取得したデータをPower Appsで使えるコレクション形式に変換します。
 
