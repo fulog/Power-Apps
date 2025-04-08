@@ -9,7 +9,12 @@
 ## 展開・利用に必要な条件
 * Power Automate 有償ライセンス（開発者・利用者）
   ※Google Geocoding APIの実行にHTTPアクションを利用します。プレミアムライセンスが必要です。
+* Pythonが利用できる環境
 
 ## 対応言語
 * 日本語
+
+
+## henkan.py
+2でhttps://japanese-addresses-v2.geoloniamaps.com/api/ja.jsonから取得したデータをPower Appsで使えるコレクション形式に変換します。
 
