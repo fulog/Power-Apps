@@ -7,7 +7,6 @@
 
 
 
-
 ## 展開・利用に必要な条件
 * Power Apps
 * Power Automate
