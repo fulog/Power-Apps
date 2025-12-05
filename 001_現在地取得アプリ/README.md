@@ -1,27 +1,63 @@
-# 現在地取得アプリ
+# 現在地取得アプリ（Power Apps）
 
-## アプリケーション概要
-現在地取得アプリは、端末のGPS等から緯度・経度を取得し、現在住所を取得するアプリです。2つの方法で現在地の取得を実装しています。
+Power Apps で端末の現在地（緯度・経度）を取得し、**現在地の住所を表示するサンプルアプリ**です。
 
-1. Google Geocoding APIを使って現在地住所を取得する
-2. 住所データを事前に準備し、計算によって最寄り住所を取得する（日本国内のみ）
+- パターン1：外部 API を使わず、事前に用意した住所データから最寄り住所を推定
+- パターン2：Google Maps Geocoding API（Power Automate 経由）で住所を取得
 
-## 展開・利用に必要な条件
-* Power Automate 有償ライセンス（開発者・利用者）
-  ※Google Geocoding APIの実行にHTTPアクションを利用します。プレミアムライセンスが必要です。
-* Pythonが利用できる環境
+ブログ記事で詳しく解説しています。
+
+- [〖Power Apps〗現在地の住所を取得する方法（APIなし）](https://www.fulogabc.net/entry/power-apps-no-api-get-location)
+- [〖Power Apps〗現在地の住所を取得する方法（Google Geocoding API）](https://www.fulogabc.net/entry/power-apps-get-location-google-geocoding-api)
+
+---
+
+## 📌 このアプリでできること
+
+### 共通
+
+- 端末の現在地（緯度・経度）を `Location` 信号から取得
+- 緯度・経度を画面に表示してデバッグ確認
+- 取得した現在地をもとに、**人が読める住所情報**を表示
+
+### パターン1：API なし版（オフライン寄り）
+
+- 事前に用意した全国住所データ（都道府県・市区・区など）を `addressData` テーブルとしてアプリ内に保持
+- Haversine 公式を使って、現在地に最も近い住所を算出
+- 以下のような情報をラベル表示
+  - 都道府県（例：東京都）
+  - 市区町村（例：港区）
+  - 区・町名　など
+
+### パターン2：Google Geocoding API 版
+
+- Power Apps で現在地の緯度・経度を取得
+- Power Apps 側で Geocoding API 用の URI を組み立て  
+  `https://maps.googleapis.com/maps/api/geocode/json?latlng={緯度},{経度}&key={API_KEY}`
+- Power Automate の HTTP アクションで API を実行し、JSON を解析
+- 必要な住所情報を絞り込み、Power Apps に返して表示
 
 
-## henkan.py
-2で https://japanese-addresses-v2.geoloniamaps.com/api/ja.json から取得したデータをPower Appsで使えるコレクション形式に変換します。
+## ✅　前提条件
 
-## 対応言語
-* 日本語
+**共通**
+- Power Apps が利用できる環境（Microsoft 365 / Power Platform）
+- 位置情報取得を許可した端末（PC / スマホ / タブレット）
+- ブラウザやアプリで位置情報利用を許可していること
 
-## 関連ブログ記事
+**API なし版**
+- アプリ内で利用する住所データ（addressData）
+- 例：geolonia/japanese-addresses-v2 などの全国住所データを整形したもの
 
-- 【Power Apps】現在地の住所を取得する方法（APIなし）  
-  https://www.fulogabc.net/entry/power-apps-no-api-get-location
-- 【Power Apps】現在地の住所を取得する方法（Google Geocoding API）  
-  https://www.fulogabc.net/entry/power-apps-get-location-google-geocoding-api
+**Google Geocoding API 版**
+- Power Automate が利用できる環境
+- Google Cloud Platform のプロジェクトと Geocoding API キー
+- Power Automate で HTTP アクションが利用可能なライセンス
+
+
+## ⚠️ 注意事項
+
+- 位置情報は GPS や IP アドレスなどから推定されるため、必ずしも正確ではありません
+- Geocoding API 版は、API 利用料金・利用制限 に注意してください
+- 本アプリはサンプルです。実務利用の前に、必ず検証環境で十分なテストを行ってください
 
