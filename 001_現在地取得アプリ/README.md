@@ -11,10 +11,17 @@
   ※Google Geocoding APIの実行にHTTPアクションを利用します。プレミアムライセンスが必要です。
 * Pythonが利用できる環境
 
-## 対応言語
-* 日本語
-
 
 ## henkan.py
 2で https://japanese-addresses-v2.geoloniamaps.com/api/ja.json から取得したデータをPower Appsで使えるコレクション形式に変換します。
+
+## 対応言語
+* 日本語
+
+## 関連ブログ記事
+
+- 【Power Apps】現在地の住所を取得する方法（APIなし）  
+  https://www.fulogabc.net/entry/power-apps-no-api-get-location
+- 【Power Apps】現在地の住所を取得する方法（Google Geocoding API）  
+  https://www.fulogabc.net/entry/power-apps-get-location-google-geocoding-api
 
