@@ -15,6 +15,8 @@ Power Apps の学習・検証・紹介用に作成した **キャンバスアプ
 | `001_現在地取得アプリ` | 現在地情報（緯度経度）から住所を取得する Power Apps | API 版 / API なし版のサンプル構成 |
 | `002_TeamsID確認用アプリ` | Teams のチーム ID / チャネル ID を確認する Power Apps | Power Automate / Graph 連携時の ID 取得補助アプリ |
 | `003_リマインドアプリ` | Teams で「いいね」していない人にメンションするリマインドアプリ | Power Apps + Power Automate 連携サンプル |
+| `004_SharePointリスト管理アプリ` | SharePointサイト内のリスト／ライブラリ情報を一覧で可視化、Hiddenの切り替えや列情報のExcel貼り付け用テキスト出力ができる| Power Apps + Power Automate 連携サンプル |
+
 
 > 各フォルダの中に、Power Apps / Power Automate からエクスポートした zip ファイルなどを配置しています。
 
